@@ -255,7 +255,7 @@ exec --no-startup-id nitrogen --restore &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Start redshift
-exec --no-startup-id redshift -l 41.879101:-87.613846
+exec --no-startup-id redshift -l 41.879101:-87.613846 -t 6500:3600 -b 1.0:1.0
 
 # Start KDE Connect
 exec --no-startup-id /usr/lib/kdeconnectd

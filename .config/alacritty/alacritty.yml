@@ -82,10 +82,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: SF Mono
+    family: SF Mono 
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Semibold
 
   # Bold font face
   #bold:
