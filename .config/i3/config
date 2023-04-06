@@ -276,5 +276,5 @@ exec --no-startup-id /usr/lib/kdeconnectd
 
 # Screen Timeout and Lock
 exec --no-startup-id xset -dpms
-exec --no-startup-id xset s 3600 3600
-exec --no-startup-id sleep1h; i3lock -i ~/Pictures/Wallpapers/lock/ColorAbstract-lock-3286x1080.png
+exec --no-startup-id xset s 3599 3599
+exec --no-startup-id sleep 1h; i3lock -i ~/Pictures/Wallpapers/lock/ColorAbstract-lock-3286x1080.png
