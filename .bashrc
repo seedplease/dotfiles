@@ -21,3 +21,8 @@ complete -cf doas
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 	source /etc/profile.d/vte.sh
 fi
+
+# Kitty Config
+if [[ "$TERM" == "xterm-kitty" ]]; then
+	alias oldvim="/usr/bin/vim -T kitty"
+fi
