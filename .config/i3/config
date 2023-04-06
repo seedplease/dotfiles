@@ -48,7 +48,10 @@ bindsym Mod4+Shift+q kill
 bindsym Mod4+Return exec kitty
 
 # lock screen
-bindsym Mod1+Mod4+l exec --no-startup-id i3lock -i ~/Pictures/Wallpapers/mpiwnicki_sky.png
+bindsym Mod1+Mod4+l exec --no-startup-id i3lock -i ~/Pictures/Wallpapers/lock/ColorAbstract-lock-3286x1080.png
+
+# screenshot - selected area to clipboard
+bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png -i
 
 # start dmenu (a program launcher)
 bindsym Mod4+d exec --no-startup-id dmenu_run -fn 'SF Pro Display' -nb '#28242e' -sf '#ffffff' -sb '#999eff' -nf '#ffffff'
@@ -274,4 +277,4 @@ exec --no-startup-id /usr/lib/kdeconnectd
 # Screen Timeout and Lock
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s 3600 3600
-exec --no-startup-id sleep1h; i3lock -i ~/Pictures/Wallpapers/mpiwnicki_sky.png 
+exec --no-startup-id sleep1h; i3lock -i ~/Pictures/Wallpapers/lock/ColorAbstract-lock-3286x1080.png
