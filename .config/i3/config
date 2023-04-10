@@ -62,14 +62,14 @@ bindsym Mod4+Shift+b exec blueberry
 # open nautilus (file explorer)
 bindsym Mod4+n exec nautilus
 
-# open firefox to homepage
-bindsym Mod4+b exec firefox
+# open librewolf to homepage
+bindsym Mod4+b exec librewolf
 
-# open firefox to youtube
-bindsym Mod4+y exec firefox https://www.youtube.com
+# open librewolf to youtube
+bindsym Mod4+y exec librewolf https://www.youtube.com
 
-# open firefox to arch wiki
-bindsym Mod4+w exec firefox https://wiki.archlinux.org
+# open librewolf to arch wiki
+bindsym Mod4+w exec librewolf https://wiki.archlinux.org
 
 # open virt-manager
 bindsym Mod4+v exec virt-manager
