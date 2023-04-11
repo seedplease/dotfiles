@@ -1,34 +1,15 @@
 " vim-plug section
 call plug#begin('~/.vim/plugged')
 
-Plug 'itchyny/lightline.vim'           " lightline statusbar
-Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }    " moonfly theme
-Plug 'EdenEast/nightfox.nvim'          " nigthfox theme
-Plug 'preservim/nerdtree' |            " nerdtree
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'preservim/nerdtree' |
-            \ Plug 'scrooloose/nerdtree-project-plugin'
-Plug 'PotatoesMaster/i3-vim-syntax'    " i3 config highlighting
-Plug 'vim-python/python-syntax'        " python highlighting
-Plug 'ap/vim-css-color'      " css color previews
-Plug 'junegunn/vim-emoji'    "Emoji
+Plug 'itchyny/lightline.vim'
+Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
+Plug 'EdenEast/nightfox.nvim'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'vim-python/python-syntax'
+Plug 'ap/vim-css-color'
+Plug 'junegunn/vim-emoji'
 
 call plug#end()
-
-autocmd VimEnter * NERDTree
-
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
 
 colorscheme carbonfox
 
