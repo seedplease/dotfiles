@@ -30,6 +30,4 @@ alias kdbx-up="cd ~/Documents/Keepassdb && git add . && git commit -m 'archbox' 
 alias kdbx-dn="cd ~/Documents/Keepassdb && git pull && cd ~"
 alias rmatrix="cmatrix -abk -C cyan"
 alias waybackproxy="cd ~/Git/WaybackProxy && python3 waybackproxy.py"
-alias vim="nvim"
-alias oldvim="/usr/bin/vim"
 alias doasedit="sh ~/Scripts/doasedit"

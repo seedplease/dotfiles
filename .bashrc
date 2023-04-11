@@ -24,5 +24,5 @@ fi
 
 # Kitty Config
 if [[ "$TERM" == "xterm-kitty" ]]; then
-	alias oldvim="/usr/bin/vim -T kitty"
+	alias vim="/usr/bin/vim -T kitty"
 fi
