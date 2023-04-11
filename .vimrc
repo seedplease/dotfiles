@@ -30,4 +30,6 @@ map <Leader>tt :vnew term://bash<CR>
 
 set splitbelow splitright
 
+set laststatus=2
+
 set nu
