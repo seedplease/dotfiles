@@ -11,6 +11,11 @@ Plug 'junegunn/vim-emoji'
 
 call plug#end()
 
+" Color schemes
+let g:lightline = {
+      \ 'colorscheme': 'PaperColor',
+      \ }
+
 colorscheme carbonfox
 
 " Remap splits navigation to C + hjkl
@@ -30,6 +35,8 @@ map <Leader>tt :vnew term://bash<CR>
 
 set splitbelow splitright
 
+" Powerline settings
 set laststatus=2
+set noshowmode
 
 set nu
