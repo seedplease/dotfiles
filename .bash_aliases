@@ -1,14 +1,12 @@
+#!/bin/bash
+
+# Universal aliases for my arch machines
+
 alias sudo="doas"
-alias t-start="doas systemctl start transmission.service"
-alias t-stop="doas systemctl stop transmission.service"
-alias t-reload="doas systemctl restart transmission.service"
-alias t-list="transmission-remote -n 'transmission:transmission' -l"
-alias t-basicstats="transmission-remote -n 'transmission:transmission' -st"
-alias t-fullstats="transmission-remote -n 'transmission:transmission' -si"
 alias syncup="doas pacman -Syy"
 alias upgrade="yay -Syu"
 alias myip="curl ipinfo.io"
-alias autoremove="doas bash ~/Scripts/arch-autoremove.sh"
+alias autoremove="doas bash ~/scripts/arch-autoremove.sh"
 alias cl="clear"
 alias cls="clear"
 alias ex="exit"
@@ -29,5 +27,4 @@ alias tempmon="watch -n1 'sensors | grep \"Tccd1:\"'"
 alias kdbx-up="cd ~/Keepassdb && git add . && git commit -m 'archbox' && git push && cd ~"
 alias kdbx-dn="cd ~/Keepassdb && git pull && cd ~"
 alias rmatrix="cmatrix -abk -C cyan"
-alias waybackproxy="cd ~/git/WaybackProxy && python3 waybackproxy.py"
 alias doasedit="sh ~/scripts/doasedit"

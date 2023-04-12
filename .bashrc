@@ -10,9 +10,16 @@ alias grep='grep --color=auto'
 #PS1='[\u@\h \W]\$ '
 PS1='\[\033[1;92m\]\u\[\033[1;39m\]@\[\033[00m\]\[\033[1;36m\]\h\[\033[00m\] \[\033[1;34m\]\W\[\033[1;39m\]\$\[\033[00m\] '
 
-# Alias definitions
+# Generic Alias definitions
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
+fi
+
+# Overwrite some aliases based on hostname
+if [[ "$HOSTNAME" == "archpad" ]]
+	alias kdbx-up="cd ~/Keepassdb && git add . && git commit -m 'archpad' && git push && cd ~"
+	alias kdbx-dn="cd ~/Keepassdb && git pull && cd ~"
+	alias tempmon="watch -n1 'sensors | grep \"Core 1:\"'"
 fi
 
 complete -cf doas
