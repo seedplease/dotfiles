@@ -28,16 +28,24 @@ if [[ "$HOSTNAME" == "archpad" ]]; then
 	alias kdbx-up="cd ~/Keepassdb && git add . && git commit -m 'archpad' && git push && cd ~"
 	alias kdbx-dn="cd ~/Keepassdb && git pull && cd ~"
 	alias tempmon="watch -n1 'sensors | grep \"Core 1:\"'"
+	alias vim="nvim"
+	alias oldvim="/usr/bin/vim"
+	
+	if [[ "$TERM" == "xterm-kitty" ]]; then
+		alias oldvim="/usr/bin/vim -T kitty"
+	fi
 fi
+
+if [[ "$HOSTNAME" == "archbox" ]]; then
+	if [[ "$TERM == xterm-kitty" ]]; then
+		alias vim="/usr/bin/vim -T kitty"
+	fi
+fi
+
 
 complete -cf doas
 
 # Tilix Config
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 	source /etc/profile.d/vte.sh
-fi
-
-# Kitty Config
-if [[ "$TERM" == "xterm-kitty" ]]; then
-	alias vim="/usr/bin/vim -T kitty"
 fi
