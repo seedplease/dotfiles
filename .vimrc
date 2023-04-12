@@ -15,8 +15,14 @@ call plug#end()
 let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ }
-
 colorscheme carbonfox
+set background=dark
+
+" Jump to the last position when reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Enable mouse usage
+set mouse=a
 
 " Remap splits navigation to C + hjkl
 nnoremap <C-h> <C-W>h
