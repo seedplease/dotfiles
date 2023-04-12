@@ -13,7 +13,7 @@ call plug#end()
 
 " Color schemes
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'powerline',
       \ }
 
 colorscheme carbonfox
