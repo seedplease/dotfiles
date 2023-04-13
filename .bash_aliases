@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Universal aliases for my arch machines
-
 alias sudo="doas"
 alias syncup="doas pacman -Syy"
 alias upgrade="yay -Syu"
