@@ -6,6 +6,8 @@ font pango:"SF Pro Display" 11
 # Remove titlebar completely
 for_window [class="^.*"] border pixel 1
 
+exec --no-startup-id xrandr --output HDMI-A-1-1 --auto --right-of HDMI-0
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
