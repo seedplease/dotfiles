@@ -86,9 +86,6 @@ if [[ "$HOSTNAME" == "archpad" ]]; then
 	alias kdbx-up="cd ~/Keepassdb && git add . && git commit -m 'archpad' && git push && cd ~"
 	alias kdbx-dn="cd ~/Keepassdb && git pull && cd ~"
 	alias tempmon="watch -n1 'sensors | grep \"Core 1:\"'"
-	alias vim="nvim"
-	alias oldvim="/usr/bin/vim"
-	
 	if [[ "$TERM" == "xterm-kitty" ]]; then
 		alias oldvim="/usr/bin/vim -T kitty"
 	fi
@@ -96,7 +93,7 @@ fi
 
 if [[ "$HOSTNAME" == "archbox" ]]; then
 	if [[ "$TERM == xterm-kitty" ]]; then
-		alias vim="/usr/bin/vim -T kitty"
+		alias oldvim="/usr/bin/vim -T kitty"
 	fi
 fi
 

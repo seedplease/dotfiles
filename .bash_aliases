@@ -27,3 +27,5 @@ alias kdbx-up="cd ~/Keepassdb && git add . && git commit -m 'archbox' && git pus
 alias kdbx-dn="cd ~/Keepassdb && git pull && cd ~"
 alias rmatrix="cmatrix -abk -C cyan"
 alias doasedit="sh ~/scripts/doasedit"
+alias vim="nvim"
+alias oldvim="/usr/bin/vim"
