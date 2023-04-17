@@ -16,6 +16,9 @@ if [[ "$HOSTNAME" == "archpad" ]]; then
 	polybar bar3 2>&1 | tee -a /tmp/polybar3.log & disown
 fi
 
+if [[ "$HOSTNAME" == "iArch" ]]; then
+	polybar bar4 2>&1 | tee -a /tmp/polybar3.log & disown
+fi
 echo "Bars launched..."
 
 # Multiple monitors
