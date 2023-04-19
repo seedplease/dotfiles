@@ -100,8 +100,8 @@ fi
 if [[ "$HOSTNAME" == "2IM-DT148" ]]; then
 	alias upgrade="doas apt update && doas apt upgrade"
 	alias GPAKtdel="bash ~/Scripts/GEOPAKTempFileEraser.sh"
-	alias kdbx-up="cd ~/Git/Keepassdb && git add . && git commit -m '2IM-DT148' && git push && cd ~"
-	alias kdbx-dn="cd ~/Git/Keepassdb && git pull && cd ~"
+	alias kdbx-up="cd ~/Keepassdb && git add . && git commit -m '2IM-DT148' && git push && cd ~"
+	alias kdbx-dn="cd ~/Keepassdb && git pull && cd ~"
 	alias vim="~/bin/neovim/AppRun"
 	alias nvim="~/bin/neovim/AppRun"
 	alias oldvim="/usr/bin/vim"
