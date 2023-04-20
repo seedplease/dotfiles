@@ -9,21 +9,21 @@ polybar-msg cmd quit
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 
 if [[ "$HOSTNAME" == "archbox" ]]; then
-	polybar bar1 2>&1 | tee -a /tmp/polybar1.log & disown
-	polybar bar2 2>&1 | tee -a /tmp/polybar2.log & disown
-fi
-
-if [[ "$HOSTNAME" == "archpad" ]]; then
-	polybar bar3 2>&1 | tee -a /tmp/polybar3.log & disown
-	polybar bar4 2>&1 | tee -a /tmp/polybar4.log & disown
-fi
-
-if [[ "$HOSTNAME" == "iArch" ]]; then
-	polybar iarchbar 2>&1 | tee -a /tmp/polybar-iarch.log & disown
+	polybar archbox-bar1 2>&1 | tee -a /tmp/archbox-bar1.log & disown
+	polybar archbox-bar2 2>&1 | tee -a /tmp/archbox-bar2.log & disown
 fi
 
 if [[ "$HOSTNAME" == "arch-2im" ]]; then
-	polybar 2imbar 2>&1 | tee -a /tmp/polybarlog-2im.log & disown
+	polybar arch-2im-bar 2>&1 | tee -a /tmp/arch-2im-bar.log & disown
+fi
+
+if [[ "$HOSTNAME" == "archpad" ]]; then
+	polybar archpad-bar1 2>&1 | tee -a /tmp/archpad-bar1.log & disown
+	polybar archpad-bar2 2>&1 | tee -a /tmp/archpad-bar2.log & disown
+fi
+
+if [[ "$HOSTNAME" == "iArch" ]]; then
+	polybar iarch-bar 2>&1 | tee -a /tmp/iarch-bar.log & disown
 fi
 
 echo "Bars launched..."
