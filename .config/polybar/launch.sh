@@ -15,11 +15,11 @@ fi
 
 if [[ "$HOSTNAME" == "archpad" ]]; then
 	polybar bar3 2>&1 | tee -a /tmp/polybar3.log & disown
-	polybar bar5 2>&1 | tee -a /tmp/polybar5.log & disown
+	polybar bar4 2>&1 | tee -a /tmp/polybar4.log & disown
 fi
 
 if [[ "$HOSTNAME" == "iArch" ]]; then
-	polybar bar4 2>&1 | tee -a /tmp/polybar4.log & disown
+	polybar iarchbar 2>&1 | tee -a /tmp/polybar-iarch.log & disown
 fi
 
 if [[ "$HOSTNAME" == "arch-2im" ]]; then
