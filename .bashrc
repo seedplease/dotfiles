@@ -17,14 +17,15 @@ if [[ "$HOSTNAME" == "archpad" ]]; then
 	PS1='\[\033[1;31m\]\u\[\033[1;39m\]\[\033[1;90m\]@\h \[\033[1;33m\]\W\[\033[1;39m\]\$\[\033[00m\] '
 fi
 
+if [[ "$HOSTNAME" == "arch-2im" ]]; then
+	PS1='\[\033[1;31m\]\u\[\033[1;39m\]\[\033[1;90m\]@\h \[\033[1;33m\]\W\[\033[1;39m\]\$\[\033[00m\] '
+fi
+
 ###DEBIAN BASH SETTINGS FOR WSL 2###
 if [[ "$HOSTNAME" == "2IM-DT148" ]]; then
 	# set some environment variables
 	export EDITOR=/home/patrick/bin/neovim/AppRun
 	export VISUAL=/home/patrick/bin/neovim/AppRun
-	export WUSR=/mnt/c/Users/PBrugliera
-	export PROJ='/mnt/h/CURRENT PROJECTS/Active'
-	export PULASKI='/mnt/h/CURRENT PROJECTS/Active/2004000 CookCounty_PulaskiRoad-PhaseI_Benesch'
 	# debian-specific options
 	HISTCONTROL=ignoreboth
 	shopt -s histappend
