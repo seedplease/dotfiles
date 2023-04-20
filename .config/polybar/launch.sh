@@ -14,10 +14,11 @@ polybar bar2 2>&1 | tee -a /tmp/polybar2.log & disown
 
 if [[ "$HOSTNAME" == "archpad" ]]; then
 	polybar bar3 2>&1 | tee -a /tmp/polybar3.log & disown
+	polybar bar5 2>&1 | tee -a /tmp/polybar5.log & disown
 fi
 
 if [[ "$HOSTNAME" == "iArch" ]]; then
-	polybar bar4 2>&1 | tee -a /tmp/polybar3.log & disown
+	polybar bar4 2>&1 | tee -a /tmp/polybar4.log & disown
 fi
 echo "Bars launched..."
 
