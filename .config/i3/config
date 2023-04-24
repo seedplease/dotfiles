@@ -84,7 +84,7 @@ bindsym Mod1+Mod4+3 exec remote-viewer spice://localhost:5902
 bindsym Mod1+Mod4+4 exec remote-viewer spice://localhost:5903
 
 # open rustdesk
-bindsym Mod1+Shift+R exec rustdesk
+bindsym Mod1+r exec rustdesk
 
 # open keepassxc (password manager)
 bindsym Mod4+p exec keepassxc
