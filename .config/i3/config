@@ -95,6 +95,9 @@ bindsym Mod4+o exec libreoffice
 #open evolution email client
 bindsym Mod4+e exec evolution
 
+#open gqrx SDR waterfall
+bindsym Mod4+g exec gqrx
+
 # change focus
 bindsym Mod4+$left focus left
 bindsym Mod4+$down focus down
