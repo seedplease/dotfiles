@@ -1,7 +1,7 @@
 # i3 config file (v4)
 
 # Original font size was 11
-font pango:"SF Pro Display" 11
+font pango:"SF Pro Text" 11
 
 # Remove titlebar completely
 for_window [class="^.*"] border pixel 1
