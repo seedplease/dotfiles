@@ -173,9 +173,6 @@ set $ws10 "10"
 # Set default workspace 1 to HDMI-0 for archbox
 workspace $ws1 output HDMI-0
 
-# Set default workspace 1 to DP-2-2
-workspace $ws1 output DP-2-2
-
 # switch to workspace
 bindsym Mod4+1 workspace number $ws1
 bindsym Mod4+2 workspace number $ws2
