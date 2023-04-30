@@ -6,8 +6,9 @@ font pango:"SF Pro Text" 11
 # Remove titlebar completely
 for_window [class="^.*"] border pixel 1
 
-# Set up screens for archbox
-exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --right-of HDMI-0
+# Set up screens for archbox and archpad
+#exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --right-of HDMI-0
+exec --no-startup-id $HOME/.config/i3/xrandr-setup.sh
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -169,8 +170,11 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Set default workspace 1 to HDMI-0
+# Set default workspace 1 to HDMI-0 for archbox
 workspace $ws1 output HDMI-0
+
+# Set default workspace 1 to DP-2-2
+workspace $ws1 output DP-2-2
 
 # switch to workspace
 bindsym Mod4+1 workspace number $ws1
