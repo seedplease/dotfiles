@@ -8,9 +8,13 @@ font pango:"SF Pro Text" 11
 # Remove titlebar completely
 for_window [class="^.*"] border pixel 1
 
-# Set the displays - archbox
-output HDMI-A-1 pos 0 0 res 1366x768 bg ~/Pictures/Wallpapers/skyrim.png fill
-output DP-2 pos 1366 0 res 1920x1080 bg ~/Pictures/Wallpapers/Startrail_by_Hajime_Mizuno.jpg fill
+# Set the displays
+#set $bg=/home/patrick/Pictures/Wallpapers/Linux-Wallpaper-HD-06207.png
+set $bg /home/patrick/Pictures/Wallpapers/winter-is-leaving_by_Gixo-dark.png
+
+output HDMI-A-1 pos 0 0 res 1366x768 bg $bg fill
+output DP-4 pos 1366 0 res 1920x1080 bg $bg fill
+output eDP-1 pos 3286 0 res 1600x900 bg $bg fill
 
 # Import the correct environment variable for wayland-1 from ~/.config/environment.d
 # This corrects an error causing gtk applications to start slowly.
@@ -73,13 +77,20 @@ bindsym Mod1+Mod4+l exec swaylock -f -c 000000
 set $menu bemenu-run --fn 'SF Pro Display' | xargs swaymsg exec
 bindsym Mod4+d exec $menu
 
+# start xfce-appfinder
+bindsym Mod4+space exec xfce4-appfinder
+
 # Launch blueberry (bluetooth settings)
-bindsym Mod4+Shift+b exec blueberry
+bindsym Mod1+b exec blueberry
 
-# Launch nautilus (file explorer)
-bindsym Mod4+n exec nautilus
+# open snes9x-gtk
+bindsym Mod4+s exec snes9x-gtk
 
-# Launch Librewolf
+# open file explorer
+#bindsym Mod4+Shift+f exec thunar
+bindsym Mod4+Shift+f exec caja
+
+# open librewolf to homepage
 bindsym Mod4+b exec librewolf
 
 # open librewolf to youtube
@@ -88,9 +99,18 @@ bindsym Mod4+y exec librewolf https://www.youtube.com
 # open librewolf to arch wiki
 bindsym Mod4+w exec librewolf https://wiki.archlinux.org
 
+# open brave to homepage
+bindsym Mod4+Shift+b exec brave
+
+# open brave to proxmox
+bindsym Mod4+Shift+p exec brave https://192.168.50.10:8006
+
 # open virt-manager
 bindsym Mod4+v exec virt-manager
 bindsym Mod4+Shift+v exec virt-manager
+
+# open remote-viewer on proxmox vm
+bindsym Mod1+Mod4+s exec remote-viewer ~/Downloads/pve-spice.vv
 
 # open remote-viewer (virtual machines on default spice ports)
 bindsym Mod1+Mod4+1 exec remote-viewer spice://localhost:5900
@@ -105,13 +125,13 @@ bindsym Mod1+r exec rustdesk
 bindsym Mod4+p exec keepassxc
 
 # open qpwgraph
-bindsym Mod4+Shift+p exec qpwgraph
+bindsym Mod1+p exec qpwgraph
 
 # open libreoffice
 bindsym Mod4+o exec libreoffice
 
-# open betterbird email client
-bindsym Mod4+e exec betterbird
+# open telegram
+bindsym Mod4+t exec flatpak run org.telegram.desktop
 
 # open gqrx SDR waterfall
 bindsym Mod4+g exec gqrx
@@ -186,9 +206,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Set default workspace 1 to HDMI-0 for archbox
+# Set default workspace
 workspace $ws1 output HDMI-A-1
-workspace $ws2 output DP-2
+workspace $ws2 output DP-4
 
 # switch to workspace
 bindsym Mod4+1 workspace number $ws1
@@ -256,7 +276,7 @@ bindsym --whole-window Mod4+button5 resize shrink width $resize_step; resize shr
 
 # Colors
 # class		        border  backgr. text    indicator child_border
-client.focused          #5e65f7 #000000 #ffffff #5e65f7   #5e65f7 
+client.focused          #F4421E #000000 #ffffff #F4421E   #F4421E 
 client.focused_inactive #333333 #222222 #888888 #484e50   #333333 
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000

@@ -12,7 +12,7 @@ import:
   #- ~/.config/alacritty/themes/themes/ayu_dark.yaml 
   #- ~/.config/alacritty/themes/themes/material_theme.yaml
   #- ~/.config/alacritty/themes/themes/monokai_charcoal.yaml
-   - ~/.config/alacritty/mytheme.yaml
+   - ~/.config/alacritty/themes/custom/custom1.yaml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -31,7 +31,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.5
+  opacity: 0.7
 
   # Startup Mode (changes require restart)
   #
@@ -82,10 +82,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: SF Mono 
+    family: SF Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Semibold
+    style: Regular
 
   # Bold font face
   #bold:
@@ -121,7 +121,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  #size: 11.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

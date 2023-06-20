@@ -6,16 +6,9 @@ font pango:"SF Pro Text" 11
 # Remove titlebar completely
 for_window [class="^.*"] border pixel 1
 
-# Set up screens for archbox and archpad
-#exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --right-of HDMI-0
-exec --no-startup-id $HOME/.config/i3/xrandr-setup.sh
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -40,7 +33,7 @@ floating_modifier Mod1
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+#tiling_drag modifier titlebar
 
 
 # kill focused window
@@ -52,19 +45,22 @@ bindsym Mod4+Shift+q kill
 bindsym Mod4+Return exec kitty
 
 # lock screen
-bindsym Mod1+Mod4+l exec --no-startup-id i3lock -i ~/Pictures/Wallpapers/lock/ColorAbstract-lock-3286x1080.png
+bindsym Mod1+Mod4+l exec --no-startup-id i3lock -c 000000
 
 # screenshot - selected area to clipboard
 bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png -i
 
 # start dmenu (a program launcher)
-bindsym Mod4+d exec --no-startup-id dmenu_run -fn 'SF Pro Display' -nb '#28242e' -sf '#ffffff' -sb '#999eff' -nf '#ffffff'
+bindsym Mod4+d exec --no-startup-id dmenu_run -fn 'SF Pro Display' -nb '#28242e' -sf '#ffffff' -sb '#F4421E' -nf '#ffffff'
 
 # open blueberry (bluetooth settings)
-bindsym Mod4+Shift+b exec blueberry
+bindsym Mod1+b exec blueberry
 
-# open nautilus (file explorer)
-bindsym Mod4+n exec nautilus
+# open snes9x-gtk
+bindsym Mod4+s exec snes9x-gtk
+
+# open file explorer
+bindsym Mod4+Shift+f exec thunar
 
 # open librewolf to homepage
 bindsym Mod4+b exec librewolf
@@ -75,11 +71,20 @@ bindsym Mod4+y exec librewolf https://www.youtube.com
 # open librewolf to arch wiki
 bindsym Mod4+w exec librewolf https://wiki.archlinux.org
 
+# open brave to homepage
+bindsym Mod4+Shift+b exec brave
+
+# open brave to proxmox
+bindsym Mod4+Shift+p exec brave https://192.168.50.10:8006
+
 # open virt-manager
 bindsym Mod4+v exec virt-manager
 bindsym Mod4+Shift+v exec virt-manager
 
-# open remote-viewer (virtual machines on default spice ports)
+# open remote-viewer on proxmox vm
+bindsym Mod1+Mod4+s exec remote-viewer ~/Downloads/pve-spice.vv
+
+# open remote-viewer (virtual machines on internal spice ports)
 bindsym Mod1+Mod4+1 exec remote-viewer spice://localhost:5900
 bindsym Mod1+Mod4+2 exec remote-viewer spice://localhost:5901
 bindsym Mod1+Mod4+3 exec remote-viewer spice://localhost:5902
@@ -92,15 +97,18 @@ bindsym Mod1+r exec rustdesk
 bindsym Mod4+p exec keepassxc
 
 # open qpwgraph
-bindsym Mod4+Shift+p exec qpwgraph
+bindsym Mod1+p exec qpwgraph
 
 # open libreoffice
 bindsym Mod4+o exec libreoffice
 
-#open betterbird email client
-bindsym Mod4+e exec betterbird
+# open betterbird email client
+#bindsym Mod4+e exec betterbird
 
-#open gqrx SDR waterfall
+# open telegram
+bindsym Mod4+t exec flatpak run org.telegram.desktop
+
+# open gqrx SDR waterfall
 bindsym Mod4+g exec gqrx
 
 # change focus
@@ -173,8 +181,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Set default workspace 1 to HDMI-0 for archbox
-workspace $ws1 output HDMI-0
+#set default workspaces for multiple monitors
+workspace $ws1 output HDMI-1
+workspace $ws2 output DP-2-2
 
 # switch to workspace
 bindsym Mod4+1 workspace number $ws1
@@ -260,7 +269,7 @@ bindsym --whole-window Mod4+button5 resize shrink width $resize_step; resize shr
 
 # Colors
 # class		        border  backgr. text    indicator child_border
-client.focused          #5e65f7 #000000 #ffffff #5e65f7   #5e65f7 
+client.focused          #F4421E #000000 #ffffff #F4421E   #F4421E 
 client.focused_inactive #333333 #222222 #888888 #484e50   #333333 
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -273,6 +282,9 @@ gaps inner 10px
 #gaps top 5px
 #gaps left 5px
 #gaps right 5px
+
+# Set up Screen Layout
+exec_always --no-startup-id $HOME/.config/i3/xrandr-setup.sh
 
 # Start picom compositor
 exec --no-startup-id picom -b

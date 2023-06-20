@@ -5,6 +5,7 @@ if [[ "$HOSTNAME" == "archbox" ]]; then
 fi
 
 if [[ "$HOSTNAME" == "archpad" ]]; then
-	exec xrandr --output DP-2-2 --auto --left-of eDP-1
-
+	exec xrandr --output eDP-1 --auto --right-of DP-2-2
+	exec xrandr --output DP-2-2 --mode 1920x1080 --left-of eDP-1
+	exec xrandr --output HDMI-1 --mode 1366x768 --left-of DP-2-2
 fi
