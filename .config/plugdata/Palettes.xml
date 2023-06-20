@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<Palettes>
-  <Palette Name="Filters" Patch="#N canvas 827 239 527 327 12;&#10;#X obj 110 97 lop~ 100;&#10;#X obj 110 140 vcf~;&#10;#X obj 110 184 lores~ 800 0.1;&#10;#X obj 110 222 svf~ 800 0.1;&#10;#X obj 110 258 bob~;&#10;"/>
-  <Palette Name="Oscillators" Patch="#N canvas 827 239 527 327 12;&#10;#X obj 110 125 osc~ 440;&#10;#X obj 110 170 phasor~;&#10;#X obj 110 214 saw~ 440;&#10;#X obj 110 250 saw2~ 440;&#10;#X obj 110 285 square~ 440;&#10;#X obj 110 320 triangle~ 440;&#10;"/>
-</Palettes>
