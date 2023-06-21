@@ -39,3 +39,9 @@ alias swayedit="vim ~/.config/sway/config"
 alias waybaredit="vim ~/.config/waybar/config"
 alias aliasedit="vim ~/.bash_aliases"
 alias feh="feh -. && disown"
+# iOS aliases for libimobiledevice and ifuse tools.
+alias imount="idevicepair pair && ifuse ~/mnt-ios/ios" # Pair device and mount main filesystem
+alias iumount="fusermount -u ~/mnt-ios/ios" # Unmount the main filesystem
+alias iapplist="ifuse --list-apps" # List the apps which have storage to be mounted
+alias iappmount="ifuse --documents" #<APPID> <mountpoint>
+alias iappumount="fusermount -u" #<mountpoint>

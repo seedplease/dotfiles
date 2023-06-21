@@ -1,4 +1,4 @@
-# i3 config file (v4)
+# Patrick's i3 config File - github version
 
 # Original font size was 11
 font pango:"SF Pro Text" 11
@@ -31,11 +31,6 @@ set $right l
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-#tiling_drag modifier titlebar
-
-
 # kill focused window
 bindsym Mod4+Shift+q kill
 
@@ -53,6 +48,9 @@ bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image
 # start dmenu (a program launcher)
 bindsym Mod4+d exec --no-startup-id dmenu_run -fn 'SF Pro Display' -nb '#28242e' -sf '#ffffff' -sb '#F4421E' -nf '#ffffff'
 
+# start xfce-appfinder
+bindsym Mod4+space exec xfce4-appfinder
+
 # open blueberry (bluetooth settings)
 bindsym Mod1+b exec blueberry
 
@@ -60,7 +58,7 @@ bindsym Mod1+b exec blueberry
 bindsym Mod4+s exec snes9x-gtk
 
 # open file explorer
-bindsym Mod4+Shift+f exec thunar
+bindsym Mod4+Shift+f exec caja
 
 # open librewolf to homepage
 bindsym Mod4+b exec librewolf
@@ -103,7 +101,7 @@ bindsym Mod1+p exec qpwgraph
 bindsym Mod4+o exec libreoffice
 
 # open betterbird email client
-#bindsym Mod4+e exec betterbird
+bindsym Mod4+e exec betterbird
 
 # open telegram
 bindsym Mod4+t exec flatpak run org.telegram.desktop
@@ -249,23 +247,6 @@ bindsym Mod4+r mode "resize"
 set $resize_step 20
 bindsym --whole-window Mod4+button4 resize grow width $resize_step; resize grow height $resize_step
 bindsym --whole-window Mod4+button5 resize shrink width $resize_step; resize shrink height $resize_step
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#     colors {
-#	 background #000000
-#	 statusline #ffffff
-#	 separator #666666
-#
-#	 focused_workspace  #4c7899 #285577 #ffffff
-#	 active_workspace   #333333 #5f676a #ffffffbindsym Mod4+d exec --no-startup-id dmenu_run -fn 'SF Pro Display' -nb '#28242e' -sf '#ffffff' -sb '#999eff' -nf '#ffffff'
-#	 inactive_workspace #333333 #222222 #888888
-#	 urgent_workspace   #2f343a #900000 #ffffff 
-#	 binding_mode	    #2f343a #900000 #ffffff
-#    }
-#    status_command i3status
-#}
 
 # Colors
 # class		        border  backgr. text    indicator child_border
