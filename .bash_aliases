@@ -38,7 +38,7 @@ alias baredit="vim ~/.config/polybar/config.ini"
 alias swayedit="vim ~/.config/sway/config"
 alias waybaredit="vim ~/.config/waybar/config"
 alias aliasedit="vim ~/.bash_aliases"
-alias feh="feh -. && disown"
+#alias feh="feh -. && disown"
 # iOS aliases for libimobiledevice and ifuse tools.
 alias imount="idevicepair pair && ifuse ~/mnt-ios/ios" # Pair device and mount main filesystem
 alias iumount="fusermount -u ~/mnt-ios/ios" # Unmount the main filesystem
