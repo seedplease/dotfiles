@@ -10,11 +10,17 @@ alias grep='grep --color=auto'
 
 # Set different variables for different machines
 if [[ "$HOSTNAME" == "archpad" ]]; then
-	PS1='\[\033[1;31m\]\u\[\033[1;39m\]\[\033[1;90m\]@\h \[\033[1;33m\]\W\[\033[1;39m\]\$\[\033[00m\] '
+	PS1="\[\033[1;31m\]\u\[\033[1;39m\]\[\033[1;90m\]@\h \[\033[1;33m\]\W\[\033[1;39m\]\$\[\033[00m\] "
 fi
 
 if [[ "$HOSTNAME" == "arch-01" ]]; then
-	PS1='\[\033[1;92m\]\u\[\033[1;39m\]@\[\033[00m\]\[\033[1;36m\]\h\[\033[00m\] \[\033[1;34m\]\W\[\033[1;39m\]\$\[\033[00m\] '
+	PS1="\[\033[1;92m\]\u\[\033[1;39m\]@\[\033[00m\]\[\033[1;36m\]\h\[\033[00m\] \[\033[1;34m\]\W\[\033[1;39m\]\$\[\033[00m\] "
+fi
+if [[ "$HOSTNAME" == "localhost" ]]; then
+	if [[ "$USER" == "u0_a132" ]]; then
+		PS1="\[\033[0;32m\]\u\[\033[0m\]@\[\033[0;34m\]\h\[\033[0m\]:\[\033[0;36m\]\w\[\033[0;31m\]$\[\033[0m\] "
+		rt=$PREFIX
+	fi
 fi
 
 ###DEBIAN BASH SETTINGS FOR WSL 2###
@@ -92,4 +98,3 @@ complete -cf doas
 #if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 #	source /etc/profile.d/vte.sh
 #fi
-
