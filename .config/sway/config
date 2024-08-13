@@ -1,0 +1,266 @@
+# Seedplease's Sway config file
+# For various arch linux machines and VMs
+# Default configuration intended for VM
+
+# Double commented lines should be uncommented on non-VM deployment
+
+# Set the font
+font pango:"SF Pro Text" 11
+
+# Titlebar Configuration
+for_window [class="^.*"] border pixel 1
+titlebar_padding 2
+
+# Set the displays
+set $bg1 /path/to/background
+set $1080p 1920x1080
+set $hdw 1920
+
+# QXL Graphics
+#output Virtual-1 mode --custom $vw2 bg $bg1 fill
+
+output HDMI-A-1 pos 0 0 res $1080p bg $bg1 fill
+
+# Modifier Variables
+set $alt Mod1
+set $sup Mod4
+
+# Keybindings for changing qxl/spice virtual resolution on the fly
+#bindsym $alt+0 exec swaymsg output Virtual-1 mode $1080p
+#bindsym $alt+1 exec swaymsg output Virtual-1 mode --custom $vw1
+#bindsym $alt+2 exec swaymsg output Virtual-1 mode --custom $vw2
+#bindsym $alt+3 exec swaymsg output Virtual-1 mode $edp
+
+# Import the correct environment variable for wayland-1 from ~/.config/environment.d/
+# This prevents gtk applications from taking a long time to start
+exec systemctl --user mask xdg-desktop-portal-gnome
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+	dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Computer idle behavior
+exec swayidle -w \
+          timeout 3600 'swaylock -f -c 000000' \
+          timeout 3600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          before-sleep 'swaylock -f -c 000000'
+# Enable NumLock when starting sway
+input type:keyboard xkb_numlock enabled
+
+# Startup Commands #
+
+# Start gammastep (redshift clone)
+exec --no-startup-id gammastep -l 41.879101:-87.613846 -t 6500:3600 -b 1.0:1.0
+
+# Start waybar
+bar swaybar_command waybar
+
+# Keyboard Commands #
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Home row direction keys
+set $up k
+set $down j
+set $left h
+set $right l
+
+# Preferred Applications
+set $term kitty
+#set $files caja
+
+# use Mouse+Alt to drag floating windows to their wanted position
+floating_modifier $alt
+
+# kill focused window
+bindsym $sup+Shift+q kill
+bindsym $alt+Shift+q kill
+
+# Application Shortcuts #
+
+# Launch terminal 
+bindsym $sup+Return exec $term 
+bindsym $alt+Return exec $term
+
+# Lock screen
+bindsym $alt+$sup+l exec swaylock -f -c 000000
+
+# Launch bemenu
+set $menu bemenu-run --fn 'SF Pro Display' | xargs swaymsg exec
+bindsym $sup+d exec $menu
+
+# start xfce-appfinder
+bindsym $sup+space exec xfce4-appfinder
+
+# Launch blueberry (bluetooth settings)
+bindsym $alt+b exec blueberry
+
+# change focus
+bindsym $sup+$left focus left
+bindsym $sup+$down focus down
+bindsym $sup+$up focus up
+bindsym $sup+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $sup+Left focus left
+bindsym $sup+Down focus down
+bindsym $sup+Up focus up
+bindsym $sup+Right focus right
+
+# move focused window
+bindsym $sup+Shift+$left move left
+bindsym $sup+Shift+$down move down
+bindsym $sup+Shift+$up move up
+bindsym $sup+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $sup+Shift+Left move left
+bindsym $sup+Shift+Down move down
+bindsym $sup+Shift+Up move up
+bindsym $sup+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $alt+a split h
+
+# split in vertical orientation
+bindsym $alt+d split v
+
+# enter fullscreen mode for the focused container
+bindsym $sup+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $alt+s layout stacking
+bindsym $alt+w layout tabbed
+bindsym $alt+e layout toggle split
+
+# toggle tiling / floating
+bindsym $alt+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $alt+space focus mode_toggle
+
+# focus the parent container
+bindsym $sup+a focus parent
+
+# focus the child container
+bindsym $sup+z focus child
+
+# move the currently focused window to the scratchpad
+bindsym $sup+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $sup+minus scratchpad show
+
+# Take a screenshot
+# Slurp is run as the screen area argument to grim.
+# Grim sends the screenshot to standard output with "-", and the command is piped to wl-copy, part of the wl-clipboard package.
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $sup+1 workspace number $ws1
+bindsym $sup+2 workspace number $ws2
+bindsym $sup+3 workspace number $ws3
+bindsym $sup+4 workspace number $ws4
+bindsym $sup+5 workspace number $ws5
+bindsym $sup+6 workspace number $ws6
+bindsym $sup+7 workspace number $ws7
+bindsym $sup+8 workspace number $ws8
+bindsym $sup+9 workspace number $ws9
+bindsym $sup+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $sup+Shift+1 move container to workspace number $ws1
+bindsym $sup+Shift+2 move container to workspace number $ws2
+bindsym $sup+Shift+3 move container to workspace number $ws3
+bindsym $sup+Shift+4 move container to workspace number $ws4
+bindsym $sup+Shift+5 move container to workspace number $ws5
+bindsym $sup+Shift+6 move container to workspace number $ws6
+bindsym $sup+Shift+7 move container to workspace number $ws7
+bindsym $sup+Shift+8 move container to workspace number $ws8
+bindsym $sup+Shift+9 move container to workspace number $ws9
+bindsym $sup+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $sup+Shift+r reload
+bindsym $alt+Shift+r reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $sup+Shift+e exec swaynag -t warning -m 'Would you like to exit Sway?' -B 'Yes' 'swaymsg exit'
+bindsym $alt+Shift+e exec swaynag -t warning -m 'Would you like to issue the shutdown command?' -B 'Yes' 'shutdown -h now'
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $alt+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $sup+r mode "default"
+}
+
+bindsym $sup+r mode "resize"
+
+# Mouse scroll wheel resizing 
+# the --whole-window flag makes mouse bindings work if the cursor is anywhere
+# within the window
+set $resize_step 20
+bindsym --whole-window $sup+button4 resize grow width $resize_step; resize grow height $resize_step
+bindsym --whole-window $sup+button5 resize shrink width $resize_step; resize shrink height $resize_step
+
+#*Color Profile 1 - Theme Color: Blue/Purple
+#*class		        border  backgr. text    indicator child_border
+client.focused          #5e65f7 #000000 #ffffff #5e65f7   #5e65f7 
+client.focused_inactive #333333 #222222 #888888 #484e50   #333333 
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+#*Color Profile 2 - Theme Color: Red/Orange
+#*class		        border  backgr. text    indicator child_border
+#client.focused          #F4421E #000000 #ffffff #F4421E   #F4421E 
+#client.focused_inactive #333333 #222222 #888888 #484e50   #333333 
+#client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+#client.urgent           #2f343a #900000 #ffffff #900000   #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+#client.background       #ffffff
+
+# Window gaps
+gaps inner 10px
+#gaps top 5px
+#gaps left 5px
+#gaps right 5px
